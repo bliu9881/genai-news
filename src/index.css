@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background: linear-gradient(180deg, rgb(117, 81, 194), rgb(255, 255, 255));
+  background: white;
   display: flex;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   height: 100vh;
@@ -13,6 +13,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  margin-top: 80px; /* Space for fixed navbar */
 }
 
 button {
@@ -27,14 +28,81 @@ button {
   transition: border-color 0.25s;
   color: white;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Navigation Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  /* ... existing styles ... */
+  z-index: 1000; /* Ensure navbar stays on top */
+}
+
+.nav-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.nav-links a:hover {
+  background-color: #2a2a2a;
+  color: #646cff;
+}
+
+.nav-links .active {
+  color: #646cff;
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-user {
+  color: #646cff;
+}
+
+/* Page Styles */
+.page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* List Styles */
 ul {
   padding-inline-start: 0;
   margin-block-start: 0;
@@ -59,7 +127,126 @@ li:hover {
   background: #dadbf9;
 }
 
+/* About Page Styles */
+.about-content {
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+.about-content ul {
+  margin: 1rem 0;
+  padding-left: 2rem;
+  border: none;
+  background: none;
+}
+
+.about-content li {
+  margin: 0.5rem 0;
+  cursor: default;
+  background: none;
+}
+
+.about-content li:hover {
+  background: none;
+}
+
+/* Link Styles */
 a {
   font-weight: 800;
   text-decoration: none;
+}
+
+/* add side bar */
+
+/* Layout */
+.layout {
+  display: flex;
+  margin-top: 60px; /* Height of navbar */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #f8f8f8;
+  height: calc(100vh - 60px); /* Subtract navbar height */
+  position: fixed;
+  left: 0;
+  top: 60px; /* Start below navbar */
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+}
+
+.sidebar-nav {
+  padding: 1rem;
+}
+
+.sidebar-section {
+  margin-bottom: 2rem;
+}
+
+.sidebar-section h3 {
+  color: #666;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  padding: 0 1rem;
+}
+
+.sidebar-nav a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #333;
+  text-decoration: none;
+  border-radius: 4px;
+  margin: 0.2rem 0;
+  font-weight: normal;
+}
+
+.sidebar-nav a:hover {
+  background-color: #f0f0f0;
+  color: #646cff;
+}
+
+.sidebar-nav a.active {
+  background-color: #e6e6ff;
+  color: #646cff;
+}
+
+/* Adjust main content to accommodate sidebar */
+main {
+  margin-left: 250px; /* Width of sidebar */
+  flex: 1;
+  padding: 2rem;
+}
+
+/* Make sure page content doesn't get too wide */
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  main {
+    margin-left: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  main {
+    margin-left: 0;
+  }
 }
