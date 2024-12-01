@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useAuthenticator } from "@aws-amplify/ui-react";
+// import { useAuthenticator } from "@aws-amplify/ui-react";
 import NavBar from "./components/NavBar";
 import Sidebar from "./components/Sidebar";
 import TodoPage from "./pages/TodoPage";
