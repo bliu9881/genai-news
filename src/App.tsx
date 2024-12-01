@@ -8,7 +8,7 @@ import TutorialsPage from "./pages/TutorialsPage";
 import KnowledgeBasePage from "./pages/KnowledgeBasePage";
 
 function App() {
-  const { user } = useAuthenticator();
+  // const { user } = useAuthenticator();
 
   return (
     <>
